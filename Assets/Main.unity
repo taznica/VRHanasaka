@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 36510501}
   - component: {fileID: 36510500}
   - component: {fileID: 36510499}
+  - component: {fileID: 36510503}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -191,13 +192,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 36510498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 203.14171, y: 2.6472833, z: 272.29608}
+  m_LocalPosition: {x: 226.24, y: 2.6472833, z: 255.75}
   m_LocalScale: {x: 3.552241, y: 5.213106, z: 2.6554255}
   m_Children:
   - {fileID: 345360768}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36510503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36510498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a4fe0796c6a40efb201b4030001f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &251865730
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,15 +284,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.011739707
+      value: -0.003
       objectReference: {fileID: 0}
     - target: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.50781304
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.03617851
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 405256, guid: c44bd9bdc114d4a60932c0087d9d1732, type: 2}
       propertyPath: m_LocalRotation.x

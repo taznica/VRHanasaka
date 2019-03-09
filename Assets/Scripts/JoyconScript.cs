@@ -27,11 +27,11 @@ public class JoyconScript : MonoBehaviour {
 
 		float accel = GetMagnitudeOfAccel();
 
-		Debug.Log(accel);
+//		Debug.Log(accel);
 
 		if(accel >= 2.0f){
 			ScatterAsh();
-			Debug.Log("Scatter");
+//			Debug.Log("Scatter");
 		}
 	}
 
@@ -64,8 +64,8 @@ public class JoyconScript : MonoBehaviour {
 
 		if(Physics.Raycast(ray, out hit, distance)){
 			if(hit.collider.tag == "Tree"){
-				Debug.Log("hit!");
-//				hit.collider.SendMessage();
+				Debug.Log("***** hit! *****");
+				hit.collider.SendMessage("ChangeColor");
 			}
 		}
 	}
