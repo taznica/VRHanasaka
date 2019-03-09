@@ -12,7 +12,7 @@ public class TreeManager : MonoBehaviour {
 	void Start () {
 //		material = this.gameObject.transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material;
 //		sakuraMaterial = new Material(Shader.Find("Sakura"));
-		sakuraMaterial = Resources.Load("Sakura", typeof(Material)) as Material;
+//		sakuraMaterial = Resources.Load("Sakura", typeof(Material)) as Material;
 		image = Resources.Load("tree_diffuse_sakura") as Texture;
 	}
 	
@@ -24,6 +24,7 @@ public class TreeManager : MonoBehaviour {
 	private void ChangeColor(){
 // ok pink //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material = sakuraMaterial;
 // ok white //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", image);
-// ok white //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
+// ok white 
+		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
 	}
 }
