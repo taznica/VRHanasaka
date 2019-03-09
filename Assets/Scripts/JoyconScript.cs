@@ -6,6 +6,7 @@ public class JoyconScript : MonoBehaviour {
 
 	private List<Joycon> joycons;
 	private Joycon joycon;
+	RaycastHit hit;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,15 @@ public class JoyconScript : MonoBehaviour {
 		}
 
 		GetAngles();
+
+		float accel = GetMagnitudeOfAccel();
+
+		Debug.Log(accel);
+
+		if(accel >= 2.0f){
+			ScatterAsh();
+			Debug.Log("Scatter");
+		}
 	}
 
 	private void GetAngles(){
@@ -35,4 +45,30 @@ public class JoyconScript : MonoBehaviour {
 
 		transform.localEulerAngles = angles;
 	}
+
+	private float GetMagnitudeOfAccel(){
+		var accelX = joycon.GetAccel().x;
+		var accelY = joycon.GetAccel().y;
+		var accelZ = joycon.GetAccel().z;
+
+		Vector3 accel = new Vector3 (accelX, accelY, accelZ);
+
+		return accel.magnitude;
+//		return Mathf.Sqrt((accelX * accelX) + (accelY * accelY) + (accelZ * accelZ));
+	}
+
+	private void ScatterAsh(){
+		Vector3 center = new Vector3 (Screen.width/2, Screen.height/2, 0);
+		Ray ray = Camera.main.ScreenPointToRay(center);
+		float distance = 50;
+
+		if(Physics.Raycast(ray, out hit, distance)){
+			if(hit.collider.tag == "Tree"){
+				Debug.Log("hit!");
+//				hit.collider.SendMessage();
+			}
+		}
+	}
+
+
 }
