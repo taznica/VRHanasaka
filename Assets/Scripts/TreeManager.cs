@@ -25,6 +25,6 @@ public class TreeManager : MonoBehaviour {
 // ok pink //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material = sakuraMaterial;
 // ok white //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", image);
 // ok white 
-		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
+		transform.Find("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
 	}
 }
