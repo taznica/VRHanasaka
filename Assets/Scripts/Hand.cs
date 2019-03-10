@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JoyconScript : MonoBehaviour {
+public class Hand : MonoBehaviour {
 
 	private List<Joycon> joycons;
 	private Joycon joycon;

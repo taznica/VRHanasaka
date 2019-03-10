@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeManager : MonoBehaviour {
+public class Tree : MonoBehaviour {
 
 	private Material material;
 	private Material sakuraMaterial;
