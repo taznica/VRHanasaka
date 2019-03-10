@@ -6,6 +6,7 @@ public class Hand : MonoBehaviour {
 
 	private List<Joycon> joycons;
 	private Joycon joycon;
+	public GameObject ash;
 	RaycastHit hit;
 
 	private bool didScattered;
@@ -70,8 +71,13 @@ public class Hand : MonoBehaviour {
 	private void ScatterAsh(){
 		Vector3 center = new Vector3 (Screen.width/2, Screen.height/2, 0);
 		Ray ray = Camera.main.ScreenPointToRay(center);
-		float distance = 50;
+		float distance = 10;
 		MakeRumble();
+
+		GameObject ashObject = Instantiate(ash, transform.position, Quaternion.identity);
+//		ashObject.transform.LookAt(this.transform.position);
+		Vector3 forward = new Vector3(-this.transform.forward.x, this.transform.forward.y, -this.transform.forward.z);
+		ashObject.transform.rotation = Quaternion.LookRotation(forward);
 
 		if(Physics.Raycast(ray, out hit, distance)){
 			// prevent calling ChangeColor when isSakura == true
