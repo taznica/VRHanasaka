@@ -7,6 +7,7 @@ public class TreeManager : MonoBehaviour {
 	private Material material;
 	private Material sakuraMaterial;
 	private Texture image;
+	private bool isSakura;
 
 	UnityEngine.AI.NavMeshAgent agent;
 	GameObject player;
@@ -20,11 +21,17 @@ public class TreeManager : MonoBehaviour {
 
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag("Player");
+
+		isSakura = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		agent.SetDestination(player.transform.position);
+		if(!isSakura) {
+			agent.SetDestination(player.transform.position);
+		} else {
+			agent.isStopped = true;
+		}
 	}
 
 	private void ChangeColor(){
@@ -32,5 +39,7 @@ public class TreeManager : MonoBehaviour {
 // ok white //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", image);
 // ok white 
 		transform.Find("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
+
+		isSakura = true;
 	}
 }
