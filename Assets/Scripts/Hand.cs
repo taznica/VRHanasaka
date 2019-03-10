@@ -71,6 +71,7 @@ public class Hand : MonoBehaviour {
 		Vector3 center = new Vector3 (Screen.width/2, Screen.height/2, 0);
 		Ray ray = Camera.main.ScreenPointToRay(center);
 		float distance = 50;
+		MakeRumble();
 
 		if(Physics.Raycast(ray, out hit, distance)){
 			// prevent calling ChangeColor when isSakura == true
@@ -81,5 +82,7 @@ public class Hand : MonoBehaviour {
 		}
 	}
 
-
+	private void MakeRumble(){
+		joycon.SetRumble(0, -100.0f, 5.0f, 50);
+	}
 }
