@@ -12,7 +12,7 @@ public class TreeGrower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timeOut = 1.0f;
+		timeOut = 5.0f;
 		radius = 24.0f;
 		Grow(radius);
 	}
