@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour {
+public class Treee : MonoBehaviour {
 
 	private Material material;
 	private Material sakuraMaterial;
 	private Texture image;
-	private bool isSakura;
+	public bool isSakura;
 
 	UnityEngine.AI.NavMeshAgent agent;
 	GameObject player;
@@ -39,7 +39,7 @@ public class Tree : MonoBehaviour {
 // ok white //		transform.FindChild("Oak_Tree").gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", image);
 // ok white 
 		transform.Find("Oak_Tree").gameObject.GetComponent<Renderer>().material.mainTexture = image;
-
 		isSakura = true;
+		GameObject.FindGameObjectWithTag("Manager").SendMessage("IncrementScore");
 	}
 }

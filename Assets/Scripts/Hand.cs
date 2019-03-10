@@ -8,12 +8,16 @@ public class Hand : MonoBehaviour {
 	private Joycon joycon;
 	RaycastHit hit;
 
+	private bool didScattered;
+
 	// Use this for initialization
 	void Start () {
 		joycons = JoyconManager.Instance.j;
 
 		// joycon = joycons.Find(con => con.isLeft);
 		joycon = joycons.Find(con => !con.isLeft);
+
+		didScattered = false;
 	}
 	
 	// Update is called once per frame
@@ -29,9 +33,15 @@ public class Hand : MonoBehaviour {
 
 //		Debug.Log(accel);
 
-		if(accel >= 2.0f){
+		// prevent calling ScatterAsh() more than once by using didScattered
+		if(accel >= 2.0f && didScattered == false){
 			ScatterAsh();
 //			Debug.Log("Scatter");
+			didScattered = true;
+		}
+
+		if(accel < 2.0f){
+			didScattered = false;
 		}
 	}
 
@@ -63,7 +73,8 @@ public class Hand : MonoBehaviour {
 		float distance = 50;
 
 		if(Physics.Raycast(ray, out hit, distance)){
-			if(hit.collider.tag == "Tree"){
+			// prevent calling ChangeColor when isSakura == true
+			if(hit.collider.tag == "Tree" && hit.collider.GetComponent<Treee>().isSakura == false){
 				Debug.Log("***** hit! *****");
 				hit.collider.SendMessage("ChangeColor");
 			}
