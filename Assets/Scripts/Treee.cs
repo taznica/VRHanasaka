@@ -42,4 +42,13 @@ public class Treee : MonoBehaviour {
 		isSakura = true;
 		GameObject.FindGameObjectWithTag("Manager").SendMessage("IncrementScore");
 	}
+
+	void OnTriggerEnter(Collider col){
+		if(col.gameObject.tag == "Player"){
+			Debug.Log("OUCH !");
+			GameObject.FindGameObjectWithTag("Manager").SendMessage("DecrementHealth");
+		}
+
+		Destroy(this.gameObject);
+	}
 }
