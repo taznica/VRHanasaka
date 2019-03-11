@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hand : MonoBehaviour {
 
@@ -43,6 +44,10 @@ public class Hand : MonoBehaviour {
 
 		if(accel < 2.0f){
 			didScattered = false;
+		}
+
+		if(joycon.GetButtonDown(Joycon.Button.DPAD_UP)){
+			Retry();
 		}
 	}
 
@@ -90,5 +95,12 @@ public class Hand : MonoBehaviour {
 
 	private void MakeRumble(){
 		joycon.SetRumble(0, -100.0f, 5.0f, 50);
+	}
+
+	private void Retry(){
+		Debug.Log("RETRY");
+		Scene scene = SceneManager.GetActiveScene();
+//		SceneManager.LoadScene(scene.name);
+		Debug.Log(scene.name);
 	}
 }
